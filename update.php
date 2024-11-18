@@ -1,13 +1,13 @@
 <?php
 require 'db.php';
 
-$id = $_GET['id'];
+$id = $_GET['id']; // Obtém o ID do usuário da URL.
 $sql = "SELECT * FROM users WHERE id = :id";
 $stmt = $pdo->prepare($sql);
-$stmt->execute(['id' => $id]);
+$stmt->execute(['id' => $id]); // Executa a consulta, passando o ID como parâmetro.
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Se o formulário foi enviado, atualiza os dados do usuário.
     $name = $_POST['name'];
     $email = $_POST['email'];
 
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare($sql);
 
     try {
-        $stmt->execute(['name' => $name, 'email' => $email, 'id' => $id]);
+        $stmt->execute(['name' => $name, 'email' => $email, 'id' => $id]); // Executa a atualização no banco de dados.
         echo "Usuário atualizado com sucesso!";
     } catch (PDOException $e) {
         echo "Erro ao atualizar usuário: " . $e->getMessage();

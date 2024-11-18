@@ -12,10 +12,10 @@ $id = $_GET['id'];
 $sql = "SELECT * FROM users WHERE id = :id";
 $stmt = $pdo->prepare($sql);
 $stmt->execute(['id' => $id]);
-$user = $stmt->fetch(PDO::FETCH_ASSOC);
+$user = $stmt->fetch(PDO::FETCH_ASSOC); // Recupera os dados obtidos
 
 if (!$user) {
-    die("Usuário não encontrado.");
+    die("Usuário não encontrado."); // Se o usuário não for encontrado, encerra o script.
 }
 
 // Se o método for POST, tente excluir o usuário

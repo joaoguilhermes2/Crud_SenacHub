@@ -1,15 +1,17 @@
 <?php
-require 'db.php';
+require 'db.php'; // Inclui o arquivo de conexão com o banco de dados.
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Verifica se o formulário foi enviado via POST.
+    // Recebe os dados enviados no formulário.
     $name = $_POST['name'];
     $email = $_POST['email'];
 
+    // Prepara a consulta SQL para inserir os dados no banco de dados.
     $sql = "INSERT INTO users (name, email) VALUES (:name, :email)";
     $stmt = $pdo->prepare($sql);
 
     try {
-        $stmt->execute(['name' => $name, 'email' => $email]);
+        $stmt->execute(['name' => $name, 'email' => $email]); // Faz a inserção no banco de dados, passando os dados de nome e e-mail.
         echo "Usuário adicionado com sucesso!";
     } catch (PDOException $e) {
         echo "Erro ao adicionar usuário: " . $e->getMessage();

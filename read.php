@@ -1,10 +1,10 @@
 <?php
 require 'db.php';
 
-$sql = "SELECT * FROM users";
-$stmt = $pdo->query($sql);
+$sql = "SELECT * FROM users"; // Consulta SQL para selecionar todos os usuários.
+$stmt = $pdo->query($sql); // Executa a consulta sem parâmetros.
 
-$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC); // Recupera todos os dados obtidos.
 ?>
 
 <!DOCTYPE html>
