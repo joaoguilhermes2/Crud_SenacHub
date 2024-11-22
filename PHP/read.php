@@ -12,6 +12,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC); // Recupera todos os dados obtidos.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/read.css">
     <title>Usuários</title>
 </head>
 <body>
