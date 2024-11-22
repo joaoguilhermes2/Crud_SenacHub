@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db = 'crud_senac';
+$db = 'crud_senac2';
 $user = 'root';
 $pass = '';
 
